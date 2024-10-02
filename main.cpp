@@ -8,7 +8,7 @@ int main()
 	const int arr_size = 10;
 	int arr[arr_size], user_arr[arr_size], rnum, count_of_hits = 0, coins = 0;
 	char restart;
-
+	bool valid = false;
 
 	do
 	{
@@ -20,8 +20,19 @@ int main()
 
 		for (int i = 0; i < arr_size; i++)
 		{
-			std::cout << "Enter " << i + 1 << " number: ";
-			std::cin >> user_arr[i];
+			do
+			{
+				std::cout << "Enter " << i + 1 << " number: ";
+				std::cin >> user_arr[i];
+				if (user_arr[i] < 0 || user_arr[i] > 10)
+				{
+					valid = true;
+				}
+				else
+				{
+					valid = false;
+				}
+			} while (valid == true);
 		}
 
 		for (int i = 0; i < arr_size; i++)
